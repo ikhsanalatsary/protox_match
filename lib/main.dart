@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomeSSL(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -180,7 +181,7 @@ class _HomeSSLState extends State<HomeSSL> {
   Future<List<int>> _loadCert() async {
     final data = await rootBundle.load('certs/ca.crt');
     final buffer = data.buffer;
-    List<int> certs = buffer.asUint16List();
+    List<int> certs = buffer.asUint8List();
 
     return certs;
   }
